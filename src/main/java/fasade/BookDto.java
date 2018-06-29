@@ -1,7 +1,9 @@
 package fasade;
 
-import java.io.Serializable;
+import lombok.Data;
 
+import java.io.Serializable;
+@Data
 public class BookDto implements Serializable {
     //zmienne string bo to bedzie na strone, czyli json
     private String isbn;

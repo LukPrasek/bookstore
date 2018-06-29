@@ -42,6 +42,6 @@ public class Author {
 
     @Override
     public int hashCode() {
-        return 0;
+        return (int) (id^ (id>>> 32));
     }
 }

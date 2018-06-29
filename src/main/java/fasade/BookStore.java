@@ -1,5 +1,5 @@
 package fasade;
 
 public interface BookStore {
-    BookDto buy(ISBNDto isbnDto, ClientDto clientDto);
+    ResultDto buy(ISBNDto isbn, ClientDto clientDto);
 }

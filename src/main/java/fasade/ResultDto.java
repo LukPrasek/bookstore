@@ -8,7 +8,7 @@ public class ResultDto implements Serializable {
 
     public enum Status {
         SUCCESS,
-        ERROR,
+        PAYMENT_ERROR,
         BOOK_NOT_FOUND;
     }
 
@@ -22,16 +22,16 @@ public class ResultDto implements Serializable {
         this.bookDtos = bookDtos;
     }
 
-    private ResultDto ofBookNotFound(String message){
-        return new ResultDto(Status.BOOK_NOT_FOUND, message, Collections.EMPTY_LIST);
-    }
-
     public static ResultDto ofSuccess(BookDto bookDto) {
-        return new ResultDto(Status.BOOK_NOT_FOUND, "", Arrays.asList(bookDto));
+        return new ResultDto(Status.SUCCESS, "", Arrays.asList(bookDto));
     }
 
     public static ResultDto ofPaymentError(String message) {
-        return new ResultDto(Status.ERROR, message, Collections.EMPTY_LIST);
+        return new ResultDto(Status.PAYMENT_ERROR, message, Collections.emptyList());
+    }
+
+    private ResultDto ofBookNotFound(String message) {
+        return new ResultDto(Status.BOOK_NOT_FOUND,message,Collections.emptyList());
     }
 
 }
